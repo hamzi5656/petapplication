@@ -106,7 +106,7 @@ import 'package:petapplication/test.dart';
               },
             ),
              ListTile(
-              leading: Icon(Icons.home),
+              leading: Icon(Icons.verified_user_outlined),
               title: Text('Consultent'),
               //ServicesList
               onTap: () {
@@ -116,8 +116,8 @@ import 'package:petapplication/test.dart';
               },
             ),
              ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: Icon(Icons.search),
+              title: Text('Search'),
               onTap: () {
         //PetFilterScreen
             Navigator.push(context, MaterialPageRoute(builder: (context)=> PetFilterScreen()));
@@ -176,8 +176,8 @@ import 'package:petapplication/test.dart';
      
             
             ])),
-      appBar: AppBar(title:const  Text("Petpal",
-      style:TextStyle(color: Colors.white),),backgroundColor: Colors.deepPurple,
+      appBar: AppBar(title:const  Text("PetPal",
+      style:TextStyle(color: Colors.white),),backgroundColor: Colors.blue,
    
       ),
       body: 
@@ -202,7 +202,7 @@ import 'package:petapplication/test.dart';
     //   const    SizedBox(height: 50,),
          const  SizedBox(height: 20,),
       //services
-      // const ServicesSliderHome(),
+    //  const ServicesSliderHome(),
       const SizedBox(height: 20,),
 
       const Align(alignment: Alignment.topLeft,

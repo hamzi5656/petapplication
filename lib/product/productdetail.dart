@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:persistent_shopping_cart/model/cart_model.dart';
 import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 import 'package:petapplication/product/model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductDetail extends StatefulWidget {
   Map productDetails;
@@ -51,7 +52,16 @@ class _ProductDetailState extends State<ProductDetail> {
       productModel(petid:"${widget.productDetails["id"]}"  , petname: "${widget.productDetails["name"]}", petdes: "${widget.productDetails["description"]}", petimg: "${widget.productDetails["img"]}", adopted:  true)
 
     ];
+ final String phoneNumber = '1234567890';
 
+  Future<void> _launchPhoneDialer(String phoneNumber) async { 
+    final Uri url = Uri(scheme: 'tel', path: phoneNumber);
+    if (await canLaunch(url.toString())) {
+      await launch(url.toString());
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -152,42 +162,53 @@ class _ProductDetailState extends State<ProductDetail> {
           ],
         ),
       ),
-      bottomSheet: Container(
-        color: Colors.white,
+      bottomSheet:    Container(
         height: 70,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-          
-            PersistentShoppingCart().showAndUpdateCartItemWidget(
-              inCartWidget: const Text(
-                "Remove",
-                style: TextStyle(color: Colors.red, fontSize: 18),
-              ),
-              notInCartWidget: 
-              TextButton(onPressed: (){
-                getpopularproduct();
-                print("hahhahahahahahha");
-
-              }, child:   Text(
-                              widget.productDetails["status"] == true ? "Not Adopted" : "Adopted",style: const TextStyle(color: Colors.green),
-                            ),),
-              // const Text(
-              //   "Add",
-              //   style: TextStyle(color: Colors.green, fontSize: 18),
-              // ),
-              product: PersistentShoppingCartItem(
-                productId:"${widget.productDetails["id"]}",
-                productName: "${widget.productDetails["name"]}",
-                unitPrice: 66,
-                quantity:1,
-                productThumbnail: "${widget.productDetails["img"]}",
-              
-              ),
-            ),
-          ],
-        ),  
+        width: double.infinity,
+        color: Colors.white,
+        child: ElevatedButton(
+                
+              onPressed: () {
+                _launchPhoneDialer(phoneNumber);
+              },
+              child: Text('Adopt'), 
+                      ),
       ),
+          
+          
+      // bottomSheet: Container(
+      //   color: Colors.white,
+      //   height: 70,
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //     children: [
+          
+      //       PersistentShoppingCart().showAndUpdateCartItemWidget(
+      //         inCartWidget: const Text(
+      //           "Remove",
+      //           style: TextStyle(color: Colors.red, fontSize: 18),
+      //         ),
+      //         notInCartWidget: 
+      //         TextButton(onPressed: (){
+      //           getpopularproduct();
+      //           print("hahhahahahahahha");
+
+           
+           
+      //         }, child:   Text(
+      //                         widget.productDetails["status"] == true ? "Not Adopted" : "Adopted",style: const TextStyle(color: Colors.green),
+      //                       ),),
+      //         // const Text(
+      //         //   "Add",
+      //         //   style: TextStyle(color: Colors.green, fontSize: 18),
+      //         // ),
+           
+      //       ),
+      //     ],
+      //   ),  
+      // ),
+    
+    
     );
   }
 }

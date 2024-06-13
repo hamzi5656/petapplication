@@ -4,11 +4,15 @@ class HomeSlider extends StatelessWidget {
   HomeSlider({super.key});
 final List<String> images = [
 
-    'https://d3i71xaburhd42.cloudfront.net/0203de1892205aaccc3c638c9d496beee1f8c151/5-Figure4-1.png',
+    // 'https://d3i71xaburhd42.cloudfront.net/0203de1892205aaccc3c638c9d496beee1f8c151/5-Figure4-1.png',
 
-     'https://www.consilium.europa.eu/media/67980/thumb.png',
-     'https://centaur-wp.s3.eu-central-1.amazonaws.com/designweek/prod/content/uploads/2019/03/18111417/thisables-edit.jpg',
+    //  'https://www.consilium.europa.eu/media/67980/thumb.png',
+    //  'https://centaur-wp.s3.eu-central-1.amazonaws.com/designweek/prod/content/uploads/2019/03/18111417/thisables-edit.jpg',
   
+  "https://t4.ftcdn.net/jpg/02/26/53/33/360_F_226533348_TiIz0m2dU4dBXC6yFJrNOfXfh5YcEecY.jpg",
+"https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_640.jpg",
+"https://cdn.britannica.com/37/91837-050-2CC301F9/Children-pet-dog.jpg"
+
   ];
   @override
   Widget build(BuildContext context) {

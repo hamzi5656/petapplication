@@ -182,14 +182,19 @@ style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,),
                          SizedBox(
             height: 60,
             width: double.infinity,
-            child: ElevatedButton(
+            child: 
+            ElevatedButton(
               
             onPressed: () {
               _launchPhoneDialer(phoneNumber);
             },
             child: Text('Hire ME'), 
                     ),
+          
+          
           )       
+                                   
+                                   
                                       ],
                                      ),
                                     
